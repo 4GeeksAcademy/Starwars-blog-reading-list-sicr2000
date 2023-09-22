@@ -9,24 +9,32 @@ export const Person = (props) => {
 
   const person = actions.loadPerson(params.uid);
   return (
-    <div className="jumbotron">
-      <img
-        src={`https://starwars-visualguide.com/assets/img/characters/${params.uid}.jpg`}
-      ></img>
-      <h1 className="display-4">This is Character: {params.uid}</h1>
+      <div className="jumbotron mt-5 pt-5">
+        <div className="d-flex justify-content-center">
+          <img
+            className="rounded"
+            src={`https://starwars-visualguide.com/assets/img/characters/${params.uid}.jpg`}
+          ></img>
+        </div>
+        <br />
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <h3 className="display-5">{person.name}</h3>
+          <h5>Birth Year: {person.birth_year}</h5>
+          <h5>Height: {person.height} cm</h5>
+          <h5>Mass: {person.mass} kg</h5>
+          <h5>Gender: {person.gender}</h5>
+          <h5>Hair Color: {person.hair_color}</h5>
+          <h5>Skin Color: {person.skin_color}</h5>
 
-      <h3 className="display-5">{person.name}</h3>
-      <p>Height: {person.height} cm</p>
-      <p>Weight: {person.mass} kg</p>
+          <hr className="my-4" />
 
-      <hr className="my-4" />
-
-      <Link to="/">
-        <span className="btn btn-primary btn-lg" href="#" role="button">
-          Back home
-        </span>
-      </Link>
-    </div>
+          <Link to="/">
+            <span className="btn btn-primary btn-lg" href="#" role="button">
+              Back home
+            </span>
+          </Link>
+        </div>
+      </div>
   );
 };
 
