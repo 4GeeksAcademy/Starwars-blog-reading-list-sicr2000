@@ -7,6 +7,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const [fav] = useState([]);
 
   return (
     <nav className="navbar navbar-light bg-light mb-3">
@@ -23,6 +24,7 @@ export const Navbar = () => {
               data-bs-auto-close="outside"
               aria-expanded="false"
             >
+              {store.favorites.length === 0 ? "0" : `${store.favorites.length}`}{" "}
               Favorites
             </button>
             <ul className="dropdown-menu dropdown-menu-end">
